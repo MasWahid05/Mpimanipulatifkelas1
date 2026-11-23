@@ -636,7 +636,7 @@ let GIAT=GIAT_BAWAAN,NADI=null;
   else h+=m.isi||'';
   if(ada(m.rantai))h+=`<div class="rantai">${m.rantai.map(r=>`<div><b>${esc(r[0])}</b>${esc(r[1]||'')}</div>`).join('')}</div>`;
   if(m.kode)h+=`<div class="kode" role="region" tabindex="0" aria-label="${esc(m.kodeLabel||'Contoh')}">${kodeHtml(m.kode)}</div>`;
-  if(m.gambar)h+=`<figure class="gbr-i" data-m="${i}"><div class="gbr-bingkai"><img src="${esc(m.gambar)}" alt="${esc(m.gambarAlt||m.judul||'')}" loading="lazy">${(m.titik||[]).map((t,j)=>`<button type="button" class="gbr-titik" data-j="${j}" style="left:${+t.x}%;top:${+t.y}%" aria-label="Titik ${j+1}: ${esc(t.t)}"><span>${j+1}</span></button>`).join('')}</div>
+  if(m.gambar)h+=`<figure class="gbr-i" data-m="${i}"><div class="gbr-bingkai"><img src="${esc(m.gambar)}" alt="${esc(m.gambarAlt||m.judul||'')}" decoding="async">${(m.titik||[]).map((t,j)=>`<button type="button" class="gbr-titik" data-j="${j}" style="left:${+t.x}%;top:${+t.y}%" aria-label="Titik ${j+1}: ${esc(t.t)}"><span>${j+1}</span></button>`).join('')}</div>
     <figcaption>${ada(m.titik)?`<b>👆 Gambar interaktif:</b> ketuk titik bernomor untuk penjelasan.`:''} <button type="button" class="tombol dua kecilT gbr-besar">🔍 Perbesar</button></figcaption><div class="gbr-ket" aria-live="polite" hidden></div></figure>`;
   if(m.setelah)h+=m.setelah;
   if(m.cek&&ada(m.cek.o))h+=`<div class="cek-paham" data-m="${i}"><b>🤔 Cek pahammu</b><p>${esc(m.cek.q)}</p><div class="cek-opsi">${acak(m.cek.o.map((_,j)=>j)).map(j=>`<button type="button" class="tombol dua kecilT" data-j="${j}">${esc(m.cek.o[j])}</button>`).join('')}</div><div class="cek-umpan" aria-live="polite"></div></div>`;
