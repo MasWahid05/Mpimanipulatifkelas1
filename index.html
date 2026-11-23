@@ -6,6 +6,7 @@
 <meta name="description" content="Bab 3 · Bergerak Menggunakan Benda. Ayo melempar, menangkap, memukul balon, menendang, dan menggiring bola, lalu main Bola Keranjang dan Bola Roket!">
 <style>:root{color-scheme:light}html,body{margin:0}body{font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Bergerak Menggunakan Benda · Kelas 1</title>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@600;800;900&display=swap">
 <style>
 /* Tata letak: pita kepala (kanvas) -> tab bagian -> satu panel per bagian; kartu berbingkai tinta tebal ala kartun cel. Warna utama bisa diganti lewat DATA.tema */
@@ -200,6 +201,12 @@ html.pid .toples{min-height:320px}
 .baris.diseret{opacity:.85;transform:scale(1.02);box-shadow:6px 8px 0 rgba(0,0,0,.35);z-index:2;position:relative}
 .pasang{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}.ps-kolom h3{font-size:20px;color:var(--tosca);margin:0 0 6px}
 .ps-isi{display:grid;gap:8px}
+.set-soal{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--redup,inherit)}
+.bs-isi{display:grid;gap:8px}.bs-baris{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;border:4px solid var(--garis);border-radius:14px;background:var(--kertas);color:var(--teks);padding:10px 12px;font-weight:800;box-shadow:3px 4px 0 var(--garis)}
+.bs-baris .nomor{font-family:var(--display);font-size:20px;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--kuning);color:#2B1A3F}
+.bs-baris.oke{border-color:#19B894;box-shadow:3px 4px 0 #19B894}.bs-baris.bug{border-color:#FF4F64;box-shadow:3px 4px 0 #FF4F64}.bs-tombol{display:flex;gap:6px}.bs-tombol .tombol{padding:8px 14px;font-size:15px}
+.bs-alasan{grid-column:2/-1;font-weight:600;font-size:15px;color:#C0263B}
+@media (max-width:720px){.bs-baris{grid-template-columns:auto 1fr}.bs-tombol{grid-column:1/-1}}
 .ps-kartu{display:flex;gap:10px;align-items:center;text-align:left;border:4px solid var(--garis);border-radius:14px;background:var(--kertas);color:var(--teks);padding:10px 12px;font-weight:800;box-shadow:3px 4px 0 var(--garis);touch-action:none;user-select:none;-webkit-user-select:none;min-height:52px}
 .ps-kartu i{flex:none;font-style:normal;font-family:var(--display);color:#fff;width:30px;height:30px;border-radius:9px;display:grid;place-items:center}
 .ps-kartu.sasaran{background:#E6FFF6}.ps-kartu.oke{background:#C8F5E5;color:#14382D}.ps-kartu.bug{background:#FFD3D9;color:#4A1420}
@@ -360,18 +367,18 @@ window.DATA = {
   lkpd: ["Periksa Diri: Aku Sudah Bisa", "Pos Lempar–Tangkap–Tendang", { n: "Bola meleset? Ambil dengan tertib", warna: "#FFD3D9" }],
 
   materi: [
-    { judul: "Apa itu gerak menggunakan benda?", pita: "Kenali",
+    { judul: "Apa itu gerak menggunakan benda?", pita: "Kenali", gambar: "gambar/1-gerak-benda.svg", gambarAlt: "Melempar, menangkap, menendang, dan menggiring bola",
       isi: "<p>Gerak yang memakai benda, seperti bola atau balon, disebut <b>gerak manipulatif</b>. Bagian tubuh yang dipakai: <b>mata, tangan, dan kaki</b>.</p>",
       rantai: [["Melempar", "pakai tangan"], ["Menangkap", "pakai tangan"], ["Memukul", "pakai tangan atau alat"], ["Menendang", "pakai kaki"], ["Menggiring", "pakai kaki atau tangan"]] },
-    { judul: "Melempar bola", pita: "Gerak 1",
+    { judul: "Melempar bola", pita: "Gerak 1", gambar: "gambar/2-melempar.svg", gambarAlt: "Anak melempar bola ke dada teman",
       isi: "<ul><li>Kaki dibuka selebar bahu, <b>badan tegak</b>.</li><li>Mata melihat <b>sasaran</b>.</li></ul>",
       rantai: [["Lurus", "dorong dari depan dada"], ["Melambung", "ayun dari atas kepala"], ["Memantul", "dorong ke arah bawah"], ["Menggelinding", "ayun dari belakang, bola kecil"]] },
-    { judul: "Menangkap bola", pita: "Gerak 2",
+    { judul: "Menangkap bola", pita: "Gerak 2", gambar: "gambar/3-menangkap.svg", gambarAlt: "Anak menangkap bola dengan tangan mangkuk lalu menarik ke dada",
       isi: "<ul><li>Kaki dibuka selebar bahu, badan tegak.</li><li>Kedua tangan <b>ke arah datangnya bola</b>.</li><li>Mata melihat bola.</li><li>Tangkap dengan <b>dua tangan</b>, lalu <b>tarik bola ke dada</b>.</li></ul>",
       setelah: "<p>Mulai dari bola besar yang dilempar pelan, lalu bola kecil.</p>" },
-    { judul: "Memukul, menendang, menggiring", pita: "Gerak 3",
+    { judul: "Memukul, menendang, menggiring", pita: "Gerak 3", gambar: "gambar/4-pukul-tendang-giring.svg", gambarAlt: "Memukul balon, menendang bola, menggiring bola",
       isi: "<ul><li><b>Memukul balon</b>: ayun tangan dari bawah ke atas, atau dari belakang ke depan.</li><li><b>Menendang</b>: kaki tumpu di <b>samping bola</b>, ayun kaki dari belakang ke depan, mata ke sasaran.</li><li><b>Menggiring</b>: dorong bola pelan-pelan dengan kaki atau pantulkan dengan tangan sambil berjalan.</li></ul>" },
-    { judul: "Main bersama, aman bersama", pita: "Aman",
+    { judul: "Main bersama, aman bersama", pita: "Aman", gambar: "gambar/5-aman.svg", gambarAlt: "Antre giliran, bola lunak, saling menyemangati, main gembira",
       rantai: [["Bola Keranjang", "lempar bola ke keranjang yang dipegang teman"], ["Merobohkan Menara", "tendang bola ke botol bekas"], ["Bola Roket", "robohkan kaleng di sisi lawan"]],
       isi: "<ul><li>Lempar dan tendang hanya saat aba-aba guru.</li><li>Jangan melempar bola ke kepala teman.</li><li>Bola meleset? Ambil setelah semua teman selesai.</li></ul>",
       sumber: "Sumber: Buku PJOK SD/MI Kelas I, Kemendikbudristek 2024, Bab III." }
@@ -482,7 +489,7 @@ const LENCANA_SEMUA=[
  ['lacak','Detektif Jeli','Menyelesaikan 3 kartu cari kesalahan','🔍'],['gerak','Peniru Gerak','Mempelajari 3 gerakan','🏃'],
  ['urut','Ahli Urutan','Menyusun urutan dengan benar','🔢'],['pasang','Pasangan Tepat','Memasangkan semua dengan benar','🧩'],
  ['label','Penjelajah Lapangan','Menempel semua label dengan benar','📍'],['taktik','Ahli Strategi','Menyimpan taktik di papan','🧠'],
- ['rebutan','Juara Rebutan','Menyelesaikan kuis rebutan','⚡'],['roda','Berani Tantangan','Memutar roda tantangan','🎡'],
+ ['rebutan','Juara Rebutan','Menyelesaikan kuis rebutan','⚡'],['roda','Berani Tantangan','Memutar roda tantangan','🎡'],['bs','Teliti Benar–Salah','Menjawab semua benar atau salah dengan tepat','✅'],
  ['refleksi','Refleksi Jujur','Mengisi tiket keluar','💬']];
 function lencanaAktif(){const J=new Set((D.permainan||[]).map(p=>p.jenis));
   return LENCANA_SEMUA.filter(([id])=>id==='kuis'||id==='kuis100'?ada(D.kuis):id==='lacak'?!!(D.lacak&&ada(D.lacak.kartu)):id==='gerak'?ada(D.gerakan):id==='refleksi'?D.refleksi!==false:J.has(id));}
@@ -991,19 +998,20 @@ function gambarDiagram(k){const B='<svg viewBox="0 0 1000 560" preserveAspectRat
   return B+`<rect width="1000" height="560" fill="#3E9B4F"/></svg>`;}
 
 const MAIN=D.permainan||[],AM=$('#arenaMain');
-const NAMA_MAIN={urut:'Urutkan Langkah',pasang:'Pasangkan',label:'Tempel Label',taktik:'Papan Taktik',rebutan:'Kuis Rebutan',roda:'Roda Tantangan'};
+const NAMA_MAIN={urut:'Urutkan Langkah',pasang:'Pasangkan',label:'Tempel Label',taktik:'Papan Taktik',rebutan:'Kuis Rebutan',roda:'Roda Tantangan',bs:'Benar atau Salah'};
 if(D.ketMain)$('#ketMain').innerHTML=D.ketMain;
 MAIN.forEach((g,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.dataset.m=i;b.dataset.jenis=g.jenis;b.innerHTML=`<b>${esc(g.n||NAMA_MAIN[g.jenis]||'Permainan')}</b>${esc(g.k||NAMA_MAIN[g.jenis]||'')}`;b.onclick=()=>pilihMain(i);$('#mainPilih').appendChild(b);});
 let mainHenti=()=>{};
 function pilihMain(i){mainHenti();mainHenti=()=>{};document.querySelectorAll('#mainPilih button').forEach(b=>b.setAttribute('aria-selected',+b.dataset.m===i?'true':'false'));
-  const G=MAIN[i],f={urut:mainUrut,pasang:mainPasang,label:mainLabel,taktik:mainTaktik,rebutan:mainRebutan,roda:mainRoda}[G.jenis];
+  const G=MAIN[i],f={urut:mainUrut,pasang:mainPasang,label:mainLabel,taktik:mainTaktik,rebutan:mainRebutan,roda:mainRoda,bs:mainBS}[G.jenis];
   if(f)f(G,i);else AM.innerHTML=`<p class="kecil">Jenis permainan "${esc(G.jenis)}" tidak dikenal.</p>`;}
 const kontrolCek=(p)=>`<div class="baris-kontrol"><button class="tombol" id="${p}Periksa" type="button">Periksa</button><button class="tombol dua" id="${p}Ulang" type="button">Ulangi</button><span class="kecil" id="${p}Info" aria-live="polite"></span></div><div class="penjelas" id="${p}Penjelas"></div>`;
 
 // 1. Urutkan langkah: seret naik-turun atau ketuk dua kartu untuk menukar
-function mainUrut(G){const L=G.langkah||[];let ur,pilih=null,cek=false;
+function pilihSet(G0,daftar){let k=Math.floor(Math.random()*daftar.length);if(daftar.length>1&&k===G0._akhir)k=(k+1)%daftar.length;G0._akhir=k;return daftar[k];}
+function mainUrut(G0){const G=ada(G0.set)?Object.assign({},G0,pilihSet(G0,G0.set)):G0;const L=G.langkah||[];let ur,pilih=null,cek=false;
   const kocok=()=>{ur=acak(L.map((_,i)=>i));let n=0;while(L.length>1&&ur.every((v,i)=>v===i)&&n++<9)ur=acak(ur);};kocok();
-  AM.innerHTML=`<p class="petunjuk-main">${G.petunjuk||'Susun dari langkah pertama sampai terakhir. <b>Seret kartu ke atas atau ke bawah</b>, atau ketuk dua kartu untuk menukar tempatnya.'}</p>
+  AM.innerHTML=`${ada(G0.set)?`<p class="set-soal">Soal: <b>${esc(G.n||'')}</b> · ${G0.set.length} set soal, berganti setiap kali <b>Soal lain</b></p>`:''}<p class="petunjuk-main">${G.petunjuk||'Susun dari langkah pertama sampai terakhir. <b>Seret kartu ke atas atau ke bawah</b>, atau ketuk dua kartu untuk menukar tempatnya.'}</p>
   <div class="program urut-daftar">${G.awal?`<div class="ujung">${esc(G.awal)}</div>`:''}<div id="urIsi" class="urut-isi"></div>${G.akhir?`<div class="ujung">${esc(G.akhir)}</div>`:''}</div>${kontrolCek('ur')}`;
   const isi=$('#urIsi');
   const gambar=()=>{isi.innerHTML='';ur.forEach((k,pos)=>{const b=document.createElement('button');b.type='button';b.className='baris urut'+(G.kode?' kodefont':'')+(cek?(k===pos?' oke':' bug'):'')+(pilih===pos?' dipilih':'');b.dataset.k=k;
@@ -1023,18 +1031,19 @@ function mainUrut(G){const L=G.langkah||[];let ur,pilih=null,cek=false;
   $('#urPeriksa').onclick=()=>{cek=true;pilih=null;const benar=ur.filter((k,p)=>k===p).length;gambar();
     if(benar===L.length){$('#urInfo').textContent=`Hebat! Semua ${L.length} langkah sudah urut.`;bunyi(880,.2);beriLencana('urut');if(G.penjelas)$('#urPenjelas').innerHTML=`<div class="ok"><b>Kenapa urutannya begini?</b> ${G.penjelas}</div>`;}
     else{$('#urInfo').textContent=`${benar} dari ${L.length} langkah sudah di tempat yang benar. Kartu merah belum tepat.`;bunyi(330,.15);}};
-  $('#urUlang').onclick=()=>{kocok();cek=false;pilih=null;$('#urInfo').textContent='';$('#urPenjelas').innerHTML='';gambar();};}
+  if(ada(G0.set)){$('#urUlang').textContent='Soal lain';$('#urUlang').onclick=()=>mainUrut(G0);}
+  else $('#urUlang').onclick=()=>{kocok();cek=false;pilih=null;$('#urInfo').textContent='';$('#urPenjelas').innerHTML='';gambar();};}
 
 // 2. Pasangkan: ketuk kartu kiri lalu kartu kanan (atau seret kartu kanan ke kiri)
-function mainPasang(G){const P=G.pasangan||[];let kanan,jodoh,pK=null,pN=null,cek=false;
+function mainPasang(G0){const bank=G0.pasangan||[],acakBank=G0.ambil&&G0.ambil<bank.length;const G=acakBank?Object.assign({},G0,{pasangan:acak(bank).slice(0,G0.ambil)}):G0;const P=G.pasangan||[];const cocok=(i,j)=>j!==undefined&&P[j]&&P[j][1]===P[i][1];let kanan,jodoh,pK=null,pN=null,cek=false;
   const mulai=()=>{kanan=acak(P.map((_,i)=>i));jodoh={};pK=pN=null;cek=false;};mulai();
-  AM.innerHTML=`<p class="petunjuk-main">${G.petunjuk||'Ketuk satu kartu kiri, lalu kartu kanan yang menjadi pasangannya. Bisa juga <b>menyeret kartu kanan ke kartu kiri</b>.'}</p>
+  AM.innerHTML=`${acakBank?`<p class="set-soal">${P.length} soal diambil acak dari <b>${bank.length}</b> soal · tekan <b>Soal lain</b> untuk soal baru</p>`:''}<p class="petunjuk-main">${G.petunjuk||'Ketuk satu kartu kiri, lalu kartu kanan yang menjadi pasangannya. Bisa juga <b>menyeret kartu kanan ke kartu kiri</b>.'}</p>
   <div class="pasang"><div class="ps-kolom"><h3>${esc(G.judulKiri||'')}</h3><div id="psKiri" class="ps-isi"></div></div><div class="ps-kolom"><h3>${esc(G.judulKanan||'')}</h3><div id="psKanan" class="ps-isi"></div></div></div>${kontrolCek('ps')}`;
   const nomorDari=j=>{const i=Object.keys(jodoh).find(k=>jodoh[k]===j);return i===undefined?null:+i;};
   const pasangkan=(i,j)=>{for(const k in jodoh)if(jodoh[k]===j)delete jodoh[k];jodoh[i]=j;pK=pN=null;cek=false;$('#psInfo').textContent='';$('#psPenjelas').innerHTML='';bunyi(660,.06,.12);gambar();};
   const gambar=()=>{const ki=$('#psKiri'),ka=$('#psKanan');ki.innerHTML='';ka.innerHTML='';
     P.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.className='ps-kartu ps-kiri';b.dataset.i=i;const j=jodoh[i],w=j!==undefined?WARNA_PASANG[i%10]:'';
-      if(w)b.style.cssText=`border-color:${w};box-shadow:4px 5px 0 ${w}`;if(pK===i)b.classList.add('dipilih');if(cek&&j!==undefined)b.classList.add(j===i?'oke':'bug');
+      if(w)b.style.cssText=`border-color:${w};box-shadow:4px 5px 0 ${w}`;if(pK===i)b.classList.add('dipilih');if(cek&&j!==undefined)b.classList.add(cocok(i,j)?'oke':'bug');
       b.innerHTML=`${w?`<i style="background:${w}">${i+1}</i>`:''}`;b.append(p[0]);b.onclick=()=>{if(pN!==null)pasangkan(i,pN);else{pK=pK===i?null:i;gambar();}};ki.appendChild(b);});
     kanan.forEach(j=>{const b=document.createElement('button');b.type='button';b.className='ps-kartu ps-kanan';b.dataset.j=j;const i=nomorDari(j),w=i!==null?WARNA_PASANG[i%10]:'';
       if(w)b.style.cssText=`border-color:${w};box-shadow:4px 5px 0 ${w}`;if(pN===j)b.classList.add('dipilih');
@@ -1047,10 +1056,25 @@ function mainPasang(G){const P=G.pasangan||[];let kanan,jodoh,pK=null,pN=null,ce
         if(gg){if(t)pasangkan(+t.dataset.i,j);return;}if(pK!==null)pasangkan(pK,j);else{pN=pN===j?null:j;gambar();}});
       b.addEventListener('pointercancel',()=>{m=null;if(h){h.remove();h=null;}});});};
   gambar();
-  $('#psPeriksa').onclick=()=>{cek=true;const n=P.length,benar=P.filter((_,i)=>jodoh[i]===i).length,isi=Object.keys(jodoh).length;gambar();
+  $('#psPeriksa').onclick=()=>{cek=true;const n=P.length,benar=P.filter((_,i)=>cocok(i,jodoh[i])).length,isi=Object.keys(jodoh).length;gambar();
     if(benar===n){$('#psInfo').textContent=`Hebat! Semua ${n} pasangan benar.`;bunyi(880,.2);beriLencana('pasang');if(G.penjelas)$('#psPenjelas').innerHTML=`<div class="ok">${G.penjelas}</div>`;}
     else{$('#psInfo').textContent=`${benar} dari ${n} pasangan benar${isi<n?`, ${n-isi} belum dipasangkan`:''}.`;bunyi(330,.15);}};
-  $('#psUlang').onclick=()=>{mulai();$('#psInfo').textContent='';$('#psPenjelas').innerHTML='';gambar();};}
+  if(acakBank){$('#psUlang').textContent='Soal lain';$('#psUlang').onclick=()=>mainPasang(G0);}
+  else $('#psUlang').onclick=()=>{mulai();$('#psInfo').textContent='';$('#psPenjelas').innerHTML='';gambar();};}
+
+// 2b. Benar atau Salah: pernyataan diambil acak dari bank, ketuk BENAR/SALAH lalu Periksa
+function mainBS(G0){const bank=G0.pernyataan||[],S=acak(bank).slice(0,Math.min(G0.ambil||8,bank.length)),jw={};let cek=false;
+  AM.innerHTML=`<p class="set-soal">${S.length} pernyataan diambil acak dari <b>${bank.length}</b> · tekan <b>Soal lain</b> untuk soal baru</p><p class="petunjuk-main">${G0.petunjuk||'Baca setiap pernyataan, lalu ketuk <b>BENAR</b> atau <b>SALAH</b>. Setelah itu tekan Periksa.'}</p><div id="bsIsi" class="bs-isi"></div>${kontrolCek('bs')}`;
+  const gambar=()=>{const el=$('#bsIsi');el.innerHTML='';S.forEach((s,i)=>{const d=document.createElement('div');d.className='bs-baris'+(cek&&jw[i]!==undefined?(jw[i]===!!s[1]?' oke':' bug'):'');d.dataset.i=i;
+    d.innerHTML=`<span class="nomor">${i+1}</span><span class="bs-teks"></span><span class="bs-tombol"></span>`;d.querySelector('.bs-teks').textContent=s[0];
+    [['BENAR',true],['SALAH',false]].forEach(([t,v])=>{const b=document.createElement('button');b.type='button';b.className='tombol'+(jw[i]===v?'':' dua');b.dataset.v=v?1:0;b.textContent=t;b.setAttribute('aria-pressed',jw[i]===v?'true':'false');
+      b.onclick=()=>{jw[i]=v;cek=false;$('#bsInfo').textContent='';bunyi(660,.06,.12);gambar();};d.querySelector('.bs-tombol').appendChild(b);});
+    if(cek&&jw[i]!==undefined&&jw[i]!==!!s[1]&&s[2]){const p=document.createElement('div');p.className='bs-alasan';p.textContent=s[2];d.appendChild(p);}el.appendChild(d);});};
+  gambar();
+  $('#bsPeriksa').onclick=()=>{cek=true;const benar=S.filter((s,i)=>jw[i]===!!s[1]).length,isi=Object.keys(jw).length;gambar();
+    if(benar===S.length){$('#bsInfo').textContent=`Hebat! Semua ${S.length} jawaban benar.`;bunyi(880,.2);beriLencana('bs');}
+    else{$('#bsInfo').textContent=`${benar} dari ${S.length} benar${isi<S.length?`, ${S.length-isi} belum dijawab`:''}. Baca penjelasan di baris merah.`;bunyi(330,.15);}};
+  $('#bsUlang').textContent='Soal lain';$('#bsUlang').onclick=()=>mainBS(G0);}
 
 // 3. Tempel label pada gambar (lapangan, tubuh, alat): seret nama ke lingkaran bernomor
 function mainLabel(G){const T=G.titik||[];let pos,urutChip,pilih=null,cek=false;
